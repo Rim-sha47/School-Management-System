@@ -1,0 +1,269 @@
+/* ============================================================
+   LOGIN PAGE STYLES — login.css
+   ============================================================ */
+
+body.login-page {
+  min-height: 100vh;
+  background: var(--grad-hero);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated background blobs */
+.login-bg-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+.blob-1 { width: 400px; height: 400px; background: rgba(0,188,212,0.18); top: -100px; left: -100px; animation-delay: 0s; }
+.blob-2 { width: 500px; height: 500px; background: rgba(255,179,0,0.08); bottom: -150px; right: -100px; animation-delay: 2s; }
+.blob-3 { width: 300px; height: 300px; background: rgba(255,255,255,0.06); top: 40%; left: 40%; animation-delay: 4s; }
+
+/* Login Header */
+.login-header {
+  text-align: center;
+  padding: 50px 20px 30px;
+  position: relative;
+  z-index: 10;
+  animation: fadeInDown 0.6s ease both;
+}
+.login-logo {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  background: white;
+  padding: 8px;
+  object-fit: contain;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  margin-bottom: 18px;
+}
+.login-school-name {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 900;
+  color: white;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+}
+.login-tagline {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Login Cards Container */
+.login-cards-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 20px 20px 60px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Individual Login Card */
+.login-card {
+  background: rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.7s ease both;
+}
+.login-card:nth-child(1) { animation-delay: 0.1s; }
+.login-card:nth-child(2) { animation-delay: 0.2s; }
+.login-card:nth-child(3) { animation-delay: 0.3s; }
+
+.login-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  transition: all 0.4s ease;
+}
+.login-card.admin-card::before  { background: linear-gradient(90deg, #FFB300, #FF6F00); }
+.login-card.teacher-card::before{ background: linear-gradient(90deg, #00BCD4, #0097A7); }
+.login-card.student-card::before{ background: linear-gradient(90deg, #4CAF50, #2E7D32); }
+
+.login-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+  border-color: rgba(255,255,255,0.4);
+}
+
+.card-icon-wrap {
+  width: 70px; height: 70px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+  margin: 0 auto 20px;
+  position: relative;
+}
+.admin-card  .card-icon-wrap { background: rgba(255,179,0,0.2); color: #FFB300; }
+.teacher-card .card-icon-wrap { background: rgba(0,188,212,0.2); color: #00BCD4; }
+.student-card .card-icon-wrap { background: rgba(76,175,80,0.2); color: #4CAF50; }
+
+.card-title {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 6px;
+}
+.card-subtitle {
+  text-align: center;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 28px;
+  letter-spacing: 0.5px;
+}
+
+/* Form Inputs */
+.login-form-group { margin-bottom: 18px; }
+.login-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.login-input-wrap { position: relative; }
+.login-input-icon {
+  position: absolute;
+  left: 14px; top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+.login-input {
+  width: 100%;
+  padding: 13px 44px 13px 40px;
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-sm);
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+.login-input::placeholder { color: rgba(255,255,255,0.4); }
+.login-input:focus {
+  background: rgba(255,255,255,0.16);
+  border-color: rgba(255,255,255,0.5);
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.08);
+}
+.login-input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 100px rgba(21,101,192,0.5) inset !important;
+  -webkit-text-fill-color: white !important;
+}
+.toggle-pw {
+  position: absolute;
+  right: 14px; top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s;
+  font-size: 0.9rem;
+}
+.toggle-pw:hover { color: rgba(255,255,255,0.9); }
+
+/* Remember + Forgot */
+.login-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.remember-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.remember-check input[type="checkbox"] {
+  width: 16px; height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.remember-check span { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+.forgot-link { font-size: 0.8rem; color: rgba(255,255,255,0.7); text-decoration: underline; }
+.forgot-link:hover { color: white; }
+
+/* Login Button */
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.admin-card  .login-btn { background: linear-gradient(135deg, #FFB300, #FF8F00); color: #fff; box-shadow: 0 4px 20px rgba(255,179,0,0.4); }
+.teacher-card .login-btn { background: linear-gradient(135deg, #00BCD4, #006064); color: #fff; box-shadow: 0 4px 20px rgba(0,188,212,0.4); }
+.student-card .login-btn { background: linear-gradient(135deg, #4CAF50, #1B5E20); color: #fff; box-shadow: 0 4px 20px rgba(76,175,80,0.4); }
+.login-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+.login-btn:active { transform: translateY(0); }
+
+/* Divider */
+.login-divider {
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.8rem;
+}
+.login-divider::before, .login-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 35%;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+}
+.login-divider::before { left: 0; }
+.login-divider::after  { right: 0; }
+
+/* Footer */
+.login-footer {
+  text-align: center;
+  padding: 20px;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.78rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .login-card { margin-bottom: 20px; }
+}
+@media (max-width: 576px) {
+  .login-card { padding: 30px 22px; }
+  .login-header { padding: 40px 20px 20px; }
+}

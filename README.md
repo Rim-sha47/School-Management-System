@@ -236,3 +236,5 @@ Built with ❤️ using PHP + MySQL + Bootstrap 5
 
 
 > 💡 **Tip:** For production deployment, remember to set `PDO::ERRMODE_EXCEPTION` to silent mode, use HTTPS, and secure your `config.php` file.
+live project
+https://rim-sha47.github.io/School-Management-System/

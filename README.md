@@ -170,9 +170,7 @@ $password = '';        // Default XAMPP password is empty
 Open your browser and navigate to:
 ```
 http://localhost/School_Management_System/
-```
-
----
+`
 
 ## 🔑 Default Login Credentials
 
@@ -185,7 +183,6 @@ http://localhost/School_Management_System/
 
 > ⚠️ **Important:** Change all default passwords immediately after first login in a production environment.
 
----
 
 ## 📸 Portal Overview
 
@@ -197,7 +194,6 @@ http://localhost/School_Management_System/
 | Teacher Dashboard | `/teacher/dashboard.php` |
 | Student Dashboard | `/student/dashboard.php` |
 
----
 
 ## 🎨 Design System
 
@@ -209,7 +205,6 @@ The UI uses a consistent design system with CSS custom properties:
 - **Responsive:** Mobile-first, fully responsive on all screen sizes
 - **Dark-mode-ready:** CSS variable architecture supports theming
 
----
 
 ## 🔒 Security Notes
 
@@ -228,19 +223,16 @@ The UI uses a consistent design system with CSS custom properties:
 4. Push to the branch (`git push origin feature/your-feature`)
 5. Open a Pull Request
 
----
 
 ## 📄 License
 
 This project is open-source and available under the [MIT License](LICENSE).
 
----
 
 ## 👨‍💻 Author
 
 **Providence School Management System**  
 Built with ❤️ using PHP + MySQL + Bootstrap 5
 
----
 
 > 💡 **Tip:** For production deployment, remember to set `PDO::ERRMODE_EXCEPTION` to silent mode, use HTTPS, and secure your `config.php` file.
